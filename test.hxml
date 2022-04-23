@@ -1,0 +1,8 @@
+-lib unit
+-cp src
+-js test.js
+-lib hxnodejs
+-lib tink_core
+-lib tink_pure
+-lib tink_unittest
+-main deputy.redis.test.Main
