@@ -25,7 +25,7 @@ import js.Browser.alert;
 using tink.CoreApis;
 
 Redis.usable()                              // connects. 
-     .handle( _ -> run() );     
+     .handle( run );     
 
 function run(out:Outcome<RedisClient, Error>) {
     switch out {
