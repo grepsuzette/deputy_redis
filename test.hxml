@@ -1,4 +1,3 @@
--lib unit
 -cp src
 -js test.js
 -lib hxnodejs
