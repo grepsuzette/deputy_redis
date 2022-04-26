@@ -1,0 +1,14 @@
+{
+    "name": "deputy_redis",
+        "url": "https://github.com/grepsuzette/deputy_redis",
+        "license": "Public",
+        "tags": ["redis", "tink_core", "haxetink", "ioredis"],
+        "description": "Some minimal redis bindings for ioredis v5",
+        "version": "0.2.0",
+        "releasenote": "group families of functions together (strings, hashes, sets...) with static extension",
+        "contributors": ["grepsuzette"],
+        "dependencies": { 
+            "tink_core":"1.27.0"
+        },
+        "classPath": "src"
+}

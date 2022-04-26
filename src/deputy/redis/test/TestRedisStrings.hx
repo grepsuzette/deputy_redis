@@ -1,8 +1,8 @@
 package deputy.redis.test;
 
-import deputy.redis.RedisClient;
+using deputy.redis.request.Strings;
 
-class TestRedis {
+class TestRedisStrings {
     var client : RedisClient;
 
     public function new() {}

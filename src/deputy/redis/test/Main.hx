@@ -1,8 +1,7 @@
 package deputy.redis.test;
 
 import deputy.redis.Redis;
-import deputy.redis.RedisClient;
-import deputy.redis.test.TestRedis;
+import deputy.redis.test.*;
 
 class Main {
 
@@ -25,7 +24,7 @@ class Main {
 
     public static function main() {
         Runner.run(TestBatch.make([
-            new TestRedis()
+            new TestRedisStrings()
         ])).handle(Runner.exit);
     }
 
