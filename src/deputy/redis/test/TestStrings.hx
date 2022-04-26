@@ -1,5 +1,6 @@
 package deputy.redis.test;
 
+using deputy.redis.request.General;
 using deputy.redis.request.Strings;
 
 class TestStrings {
