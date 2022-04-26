@@ -2,10 +2,9 @@ package deputy.redis.test;
 
 using deputy.redis.request.Strings;
 
-class TestRedisStrings {
+class TestStrings {
     var client : RedisClient;
-
-    public function new() {}
+    public function new() { client = null; }
 
     @:setup public function setup() 
         return deputy.redis.Redis.usable()

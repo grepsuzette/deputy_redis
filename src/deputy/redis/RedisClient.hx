@@ -10,6 +10,7 @@ typedef Impl =
  * Methods are regrouped by family (sets, strings, hashes etc).
  * Use static extension upon the choosen classes in the deputy.redis.request package.
  */
+@:allow(deputy.redis.request)
 class RedisClient {
     var impl : Impl;
     public function new(impl:Impl) this.impl = impl;

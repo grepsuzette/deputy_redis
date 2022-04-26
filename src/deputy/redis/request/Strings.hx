@@ -1,7 +1,6 @@
 package deputy.redis.request;
 
 #if js
-@:access(deputy.redis.RedisClient)
 class Strings {
 
     public static function get(client:RedisClient, k:RedisKey) : Promise<RedisString>

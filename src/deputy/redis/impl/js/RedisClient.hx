@@ -9,13 +9,20 @@ extern class RedisClient {
     function connect() : JsPromise<RedisClient>;
     function quit() : JsPromise<Ok>;
 
-    function get(k:RedisKey) : JsPromise<RedisString>; 
-    function set(k:RedisKey, v:RedisString) : JsPromise<Ok>;
+    /** @name Strings @{ {{{ **/
+        function get(k:RedisKey) : JsPromise<RedisString>; 
+        function set(k:RedisKey, v:RedisString) : JsPromise<Ok>;
 
-    function mget(a:Array<RedisKey>) : JsPromise<Array<RedisString>>; 
-    function mset(a:js.lib.Map<RedisKey, RedisString>) : JsPromise<Ok>; 
+        function mget(a:Array<RedisKey>) : JsPromise<Array<RedisString>>; 
+        function mset(a:js.lib.Map<RedisKey, RedisString>) : JsPromise<Ok>; 
 
-    function del(a:Array<RedisKey>) : JsPromise<Ok>;
-    function exists(a:Array<RedisKey>) : JsPromise<Int>;
+        function del(a:Array<RedisKey>) : JsPromise<Ok>;
+        function exists(a:Array<RedisKey>) : JsPromise<Int>;
+    /** @} }}} **/
+
+    /** @name hashes @{ {{{ **/
+        function hgetall(k:RedisKey) : JsPromise<js.lib.Map<String, String>>;
+        function hset(k:RedisKey, h:js.lib.Map<String, String>) : JsPromise<Ok>;
+    /** @} }}} **/
 }
 

@@ -24,7 +24,7 @@ class Main {
 
     public static function main() {
         Runner.run(TestBatch.make([
-            new TestRedisStrings()
+            new TestStrings(),
         ])).handle(Runner.exit);
     }
 
