@@ -25,6 +25,7 @@ class Main {
     public static function main() {
         Runner.run(TestBatch.make([
             new TestStrings(),
+            new TestHashes(),
         ])).handle(Runner.exit);
     }
 
