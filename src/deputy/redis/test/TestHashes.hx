@@ -3,8 +3,8 @@ package deputy.redis.test;
 using deputy.redis.request.General;
 using deputy.redis.request.Hashes;
 
-// please keep the same order for the tests
-//  or it won't work
+// please keep the same order for the tests or it won't work
+// https://github.com/luin/ioredis/blob/main/examples/hash.js
 class TestHashes {
     var client : RedisClient;
     public function new() { client = null; }
