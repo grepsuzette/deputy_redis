@@ -1,7 +1,7 @@
 ioredis v5 minimal bindings for [Haxe](https://haxe.org) (current target: node)
 with [tink_core](https://haxe.org/haxetink/tink_core) promises
 
-a totally minimal version with just the in-memory key-value for now
+a totally minimal version with partial support
 
 See API, in case you need to bind more functions, 
 at https://luin.github.io/ioredis/classes/Redis.html
