@@ -67,4 +67,3 @@ class Hashes {
 
 }
 #end
-

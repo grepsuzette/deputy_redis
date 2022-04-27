@@ -9,6 +9,10 @@ class Strings {
     public static function set(client:RedisClient, k:RedisKey, v:RedisString) : Promise<Noise>
         return Promise.ofJsPromise(client.impl.set(k, v)).next( _ -> Noise );
 
+    /* Set key to hold the string value and set key to timeout after a given number of seconds. */
+    public static function setex(client:RedisClient, k:RedisKey, seconds:Int, v:RedisString) : Promise<Noise>
+        return Promise.ofJsPromise(client.impl.setex(k, seconds, v)).next( _ -> Noise );
+
     public static function mget(client:RedisClient, aIn:Iterable<RedisKey>) : Promise<List<Duet<RedisKey, RedisString>>> {
         var a : Array<RedisKey> = Lambda.array(aIn);
         return Promise.ofJsPromise(client.impl.mget(a))

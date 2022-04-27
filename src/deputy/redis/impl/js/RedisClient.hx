@@ -17,6 +17,7 @@ extern class RedisClient {
     function set(k:RedisKey, v:RedisString) : JsPromise<Ok>;
     function mget(a:Array<RedisKey>) : JsPromise<Array<RedisString>>; 
     function mset(a:js.lib.Map<RedisKey, RedisString>) : JsPromise<Ok>; 
+    function setex(k:RedisKey, seconds:Int, v:RedisString) : JsPromise<Ok>;
 
     // --- Hashes -------
     // function hgetall(k:RedisKey) : JsPromise<js.lib.Map<String, String>>;
@@ -29,4 +30,3 @@ extern class RedisClient {
     function hset(k:RedisKey, h:js.lib.Map<String, String>) : JsPromise<Ok>;
 
 }
-

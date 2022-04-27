@@ -44,4 +44,23 @@ class TestStrings {
         return client.exists(["test1", "test2", "fjijaifjiwjfe"])
             .next( n -> assert(n == 0) );
 
+    public function setex() {
+        var trig = Promise.trigger();
+        client.setex('test', 1, 'bar');
+        Future.delay( 
+            1200, 
+            function() { 
+                client.exists(['test']).handle(
+                    function (out) {
+                        switch out {
+                            case Success(n): trig.trigger(Success(assert(n == 0)));
+                            case Failure(_): trig.trigger(Success(assert(false)));
+                        }
+                    }
+                );
+            }
+        );
+        return trig;
+    }
+
 }

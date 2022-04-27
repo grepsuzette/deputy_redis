@@ -4,8 +4,8 @@
         "license": "Public",
         "tags": ["redis", "tink_core", "haxetink", "ioredis"],
         "description": "Some minimal redis bindings for ioredis v5",
-        "version": "0.3.0",
-        "releasenote": "add Hashes function family",
+        "version": "0.3.1",
+        "releasenote": "Add setex command",
         "contributors": ["grepsuzette"],
         "dependencies": { 
             "tink_core":"1.27.0"
