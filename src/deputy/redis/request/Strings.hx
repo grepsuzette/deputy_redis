@@ -15,11 +15,14 @@ class Strings {
 
     public static function mget(client:RedisClient, aIn:Iterable<RedisKey>) : Promise<List<Duet<RedisKey, RedisString>>> {
         var a : Array<RedisKey> = Lambda.array(aIn);
-        return Promise.ofJsPromise(client.impl.mget(a))
-            .next(aRet -> 
-                if (aRet.length != a.length) Failure(new Error(Conflict, 'Redis.mget mismatch ${aRet.length} != ${a.length}'))
-                else Success(tink.pure.List.fromArray([ for (i in 0...a.length) new Duet(a[i], aRet[i]) ]))
-            );
+        return 
+            if (a.length == 0) list([])
+            else Promise.ofJsPromise(client.impl.mget(a))
+                .next(aRet -> 
+                    if (aRet.length != a.length) Failure(new Error(Conflict, 'Redis.mget mismatch ${aRet.length} != ${a.length}'))
+                    else Success(tink.pure.List.fromArray([ for (i in 0...a.length) new Duet(a[i], aRet[i]) ]))
+                )
+            ;
     }
 
     public static function mset(client:RedisClient, l:Iterable<Duet<RedisKey, RedisString>>) : Promise<Noise> 

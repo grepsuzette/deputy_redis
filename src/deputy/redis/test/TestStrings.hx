@@ -21,6 +21,9 @@ class TestStrings {
         return client.mset([new tink.Pair("test1", "alpha"), new tink.Pair("test2", "beta")])
             .next( _ -> assert(true) );
 
+    public function mget_empty() 
+        return client.mget([]).next( l -> assert(l.length == 0 ));
+
     public function mget() 
         return client.mget(["test1", "test2"])
             .next( l -> {
@@ -30,6 +33,24 @@ class TestStrings {
                     && a[0].b == "alpha"
                     && a[1].b == "beta"
                 );
+            });
+
+    public function mget_repeatedentry() 
+        return client.mget(["test1", "test2", "test1"])
+            .next( l -> {
+                var a = l.toArray();
+                assert(a[0].a == "test1"
+                    && a[1].a == "test2"
+                    && a[0].b == "alpha"
+                    && a[1].b == "beta"
+                );
+            });
+
+    public function mget_inexistant() 
+        return client.mget(["test_a945294359234952"])
+            .next( l -> {
+                var a = l.toArray();
+                assert(a[0].b == null);
             });
 
     public function exists_before_del() 
